@@ -126,4 +126,4 @@ Open `driveqa-ai-driving-instructor.ipynb` in Jupyter Notebook, JupyterLab, or K
 
 ## Demo video
 
-Watch or download the project walkthrough: [DriveQA demo video](assets/driveqa-demo.mp4).
+![DriveQA demo](assets/driveqa-demo.gif)
