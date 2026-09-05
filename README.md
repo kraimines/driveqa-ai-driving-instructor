@@ -79,6 +79,51 @@ For example:
 
 The exact behavior and quality of the responses depend on the dataset, preprocessing, training configuration, and model checkpoint used.
 
+## Installation
+
+### Prerequisites
+
+- Python 3.10 or later
+- Git
+- A CUDA-compatible GPU is recommended for fine-tuning and inference with Qwen2-VL
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/kraimines/driveqa-ai-driving-instructor.git
+cd driveqa-ai-driving-instructor
+```
+
+### 2. Create and activate a virtual environment
+
+```bash
+python -m venv .venv
+```
+
+On Windows:
+
+```bash
+.venv\Scripts\activate
+```
+
+On macOS or Linux:
+
+```bash
+source .venv/bin/activate
+```
+
+### 3. Install PyTorch and the project dependencies
+
+Install the PyTorch build appropriate for your CPU or CUDA version by following the [official PyTorch installation guide](https://pytorch.org/get-started/locally/), then run:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run the project
+
+Open `driveqa-ai-driving-instructor.ipynb` in Jupyter Notebook, JupyterLab, or Kaggle and run the cells in order. The notebook downloads the DriveQA dataset, prepares the data, and includes examples for training, evaluation, and launching a Gradio or Streamlit demo.
+
 ## Demo video
 
 Watch or download the project walkthrough: [DriveQA demo video](assets/driveqa-demo.mp4).
