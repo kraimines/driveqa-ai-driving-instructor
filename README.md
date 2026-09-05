@@ -1,46 +1,84 @@
 # DriveQA AI Driving Instructor
 
-> An AI driving assistant that analyses road-scene images, answers driving-safety questions, and explains the reasoning behind its recommendations.
+An AI-powered driving assistant that analyzes road-scene images, answers driving-safety questions, and explains the reasoning behind its recommendations.
 
-DriveQA AI Driving Instructor is an experimental vision-language project built around the [DriveQA dataset](https://huggingface.co/datasets/DriveQA/DriveQA_Dataset). The notebook prepares driving-intersection examples, fine-tunes and evaluates a Qwen2-VL model, then demonstrates a simple Gradio or Streamlit interface for asking questions about a driving scene.
+## Overview
 
-> **Safety notice:** this project is for research, education, and driving-scenario analysis only. It must not be used as a replacement for a licensed driving instructor, traffic law, or real-time safety-critical driving systems.
+DriveQA AI Driving Instructor is an experimental vision-language project built around the [DriveQA Dataset](https://huggingface.co/datasets/DriveQA/DriveQA_Dataset).
+
+The project explores how multimodal large language models (VLMs) can be adapted to understand driving scenes and provide natural-language answers to questions about road situations.
+
+The main workflow includes:
+
+- Preparing and processing driving-intersection examples from the DriveQA dataset.
+- Fine-tuning a Qwen2-VL vision-language model on driving-related question-answer pairs.
+- Evaluating the model on driving-scenario questions.
+- Demonstrating the model through an interactive Gradio / Streamlit interface.
+- Generating explanations that describe why a particular driving action is recommended.
+
+The goal is to investigate whether vision-language models can combine visual understanding, driving knowledge, and natural-language reasoning in a single system.
+
+## Features
+
+- 🖼️ **Road-scene understanding** — analyze images containing intersections and other driving situations.
+- 💬 **Driving Q&A** — ask questions about what is happening in a scene.
+- 🧠 **Reasoning explanations** — provide an explanation for the recommended action.
+- 🤖 **Vision-language model** — built around Qwen2-VL.
+- 📚 **DriveQA dataset** — uses real-world driving-question-answer examples.
+- 🏋️ **Model fine-tuning** — adapts a pretrained VLM to the driving domain.
+- 📊 **Model evaluation** — evaluate responses on driving scenarios.
+- 🌐 **Interactive demo** — experiment with the trained model through a Gradio or Streamlit interface.
+
+## Project Pipeline
+
+```text
+                 DriveQA Dataset
+                       │
+                       ▼
+              Data Preparation
+                       │
+                       ▼
+          Driving Scene / QA Examples
+                       │
+                       ▼
+              Qwen2-VL Fine-tuning
+                       │
+                       ▼
+                 Model Evaluation
+                       │
+                       ▼
+             Interactive Application
+                ┌──────┴──────┐
+                ▼             ▼
+             Gradio       Streamlit
+                │             │
+                └──────┬──────┘
+                       ▼
+              Driving Scene Q&A
+```
+
+## Model
+
+The project uses Qwen2-VL, a multimodal vision-language model capable of processing both images and text.
+
+The model is adapted to the driving domain using examples from DriveQA. Given a road-scene image and a question, the model produces a natural-language response describing the appropriate driving decision.
+
+For example:
+
+**Input:**
+
+`[Road-scene image]`
+
+**Question:**
+
+> What should the driver do at this intersection?
+
+**Model:**
+
+> The driver should slow down and yield to the approaching vehicle because the other vehicle has priority at the intersection.
+
+The exact behavior and quality of the responses depend on the dataset, preprocessing, training configuration, and model checkpoint used.
 
 ## Demo video
 
 Watch or download the project walkthrough: [DriveQA demo video](assets/driveqa-demo.mp4).
-
-## What it can do
-
-- Analyse an image of an intersection or driving scenario.
-- Answer questions such as who has priority or what hazards may be present.
-- Give an explanation and a concise driving-rule reminder.
-- Provide a lightweight Gradio or Streamlit interface after model training.
-
-## Repository contents
-
-| Path | Purpose |
-| --- | --- |
-| `driveqa-ai-driving-instructor.ipynb` | End-to-end experimentation, data preparation, fine-tuning, evaluation, and UI examples. |
-| `assets/driveqa-demo.mp4` | Short project demonstration video. |
-| `requirements.txt` | Core Python dependencies used in the notebook. |
-
-## Quick start
-
-1. Create an environment with Python 3.10+ and install PyTorch for your CUDA/CPU setup from [pytorch.org](https://pytorch.org/get-started/locally/).
-2. Install the project dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Open `driveqa-ai-driving-instructor.ipynb` in Jupyter or Kaggle.
-4. Follow the cells to download DriveQA data from Hugging Face, prepare the dataset, and run inference or fine-tuning.
-
-## Model and data
-
-The notebook uses Qwen2-VL for vision-language reasoning and explores BLIP/BLIP-2 baselines. It downloads the DriveQA dataset at runtime; large datasets and trained model checkpoints are intentionally not committed to this repository.
-
-## License and attribution
-
-Please review and respect the licenses and terms for the [DriveQA dataset](https://huggingface.co/datasets/DriveQA/DriveQA_Dataset), Qwen2-VL, and all model dependencies before reuse or redistribution.
