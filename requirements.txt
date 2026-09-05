@@ -1,0 +1,13 @@
+accelerate
+bitsandbytes
+datasets
+gradio
+huggingface_hub
+jupyter
+peft
+pillow
+pyngrok
+qwen-vl-utils
+streamlit
+transformers
+trl

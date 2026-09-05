@@ -1,0 +1,23 @@
+# Python and notebooks
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Training data and downloaded artifacts
+driveqa_images/
+driveqa_data/
+*.pkl
+*.tar.gz
+driveqa_qwen2vl_finetuned/
+checkpoints/
+outputs/
+
+# Secrets and local configuration
+.env
+.env.*
+*.token
+
+# Streamlit
+.streamlit/secrets.toml
